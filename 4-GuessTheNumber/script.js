@@ -44,7 +44,10 @@ function checkGuess(guess) {
     // compares your guess with the random number
     if (guess > randomNumber) displayMsg('the number is too high!');
     else if (guess < randomNumber) displayMsg('the number is too low!');
-    else displayMsg('you Win!!');
+    else{
+        displayMsg('you Win!!');
+        endGame();
+    };
 }
 
 function displayGuess(guess) {
