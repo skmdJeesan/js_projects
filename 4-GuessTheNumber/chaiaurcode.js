@@ -29,7 +29,7 @@ function validateGuess(guess) {
     else if (guess < 1 || guess > 100) alert('please enter a valid number');
     else {
         prevGuess.push(guess);
-        if (numGuess === 11) {
+        if (numGuess === 10) {
             displayGuess(guess);
             displayMsg(`Game Over! the Random number was ${randomNumber}`);
             endGame();
