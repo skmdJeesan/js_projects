@@ -24,14 +24,16 @@ body {
     border-radius: 10px;
     padding: 20px;
     text-align: center;
+     position: relative;
 }
 
 #card img{
     height: 55%;
     width: 100%;
     object-fit: cover;
-    object-position: left;
+    object-position: center;
     border-radius: 10px;
+   
 }
 
 #card h2 {
@@ -60,3 +62,14 @@ body {
     background-color: #dadada;
     color: #111;
 } */
+
+#card i {
+    color: red;
+    font-size: 75px;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: transform ease 0.5s;
+}

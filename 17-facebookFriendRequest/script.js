@@ -26,3 +26,15 @@ btn.addEventListener('click', function () {
 //     istatus.innerHTML = 'Stranger';
 //     istatus.style.color = 'red';
 // })
+
+const img = document.querySelector('img');
+const love = document.querySelector('i');
+
+img.addEventListener('dblclick', function(){
+    love.style.opacity = '0.8';
+    love.style.transform = 'translate(-50%, -50%) scale(1)';
+    setTimeout(function(){
+        love.style.opacity = '0';
+        love.style.transform = 'translate(-50%, -50%) scale(0)';
+    }, 3000)
+})
