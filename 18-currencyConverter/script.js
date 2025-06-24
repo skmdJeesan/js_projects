@@ -1,5 +1,8 @@
+// const BASE_URL =
+//   "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies";
+
 const BASE_URL =
-  "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies";
+  "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies";
 
 const dropdowns = document.querySelectorAll(".dropdown select");
 const btn = document.querySelector("form button");
@@ -13,8 +16,10 @@ for (let select of dropdowns) {
     newOption.innerText = currCode;
     newOption.value = currCode;
 
-    if (select.name === "from" && currCode === "USD") newOption.selected = "selected";
-    else if (select.name === "to" && currCode === "INR") newOption.selected = "selected";
+    if (select.name === "from" && currCode === "USD")
+      newOption.selected = "selected";
+    else if (select.name === "to" && currCode === "INR")
+      newOption.selected = "selected";
 
     select.append(newOption);
   }
@@ -31,10 +36,12 @@ const updateExchangeRate = async () => {
     amtVal = 1;
     amount.value = "1";
   }
-  const URL = `${BASE_URL}/${fromCurr.value.toLowerCase()}/${toCurr.value.toLowerCase()}.json`;
+
+  const URL = `${BASE_URL}/${fromCurr.value.toLowerCase()}.json`;
   let response = await fetch(URL);
+  if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
   let data = await response.json();
-  let rate = data[toCurr.value.toLowerCase()];
+  let rate = data[fromCurr.value.toLowerCase()][toCurr.value.toLowerCase()];
 
   let finalAmount = amtVal * rate;
   msg.innerText = `${amtVal} ${fromCurr.value} = ${finalAmount} ${toCurr.value}`;

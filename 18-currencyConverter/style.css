@@ -18,11 +18,11 @@ body {
 }
 
 .container {
-    background-color: #fff;
+    background-color: whitesmoke;
     padding: 25px;
     border-radius: 10px;
-    width: 400px;
-    height: 350px;
+    width: 420px;
+    height: 320px;
 }
 
 .dropdown {
@@ -55,17 +55,17 @@ form input,select,button {
 form input {
     border: 1px solid lightgray;
     font-size: 15px;
-    height: 50px;
+    height: 30px;
     padding-left: 5px;
 }
 
 form button {
     margin-top: 15px;
-  height: 3rem;
-  background-color: #af4d98;
-  color: #fff;
-  font-size: 1.15rem;
-  cursor: pointer;
+    height: 30px;
+    background-color: #af4d98;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
 }
 
 form {
