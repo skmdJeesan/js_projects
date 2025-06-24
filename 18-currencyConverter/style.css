@@ -21,4 +21,25 @@ body {
     background-color: #fff;
     padding: 25px;
     border-radius: 10px;
+    width: 400px;
+    height: 300px;
+}
+
+.dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.select-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid lightgrey;
+    padding: 7px;
+    border-radius: 7px;
+}
+
+.select-container img {
+    width: 30px;
 }
