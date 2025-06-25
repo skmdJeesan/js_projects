@@ -10,7 +10,9 @@ html, body {
     width: 100%;
 }
 
-body {
+#main {
+    height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,7 +26,8 @@ body {
     border-radius: 10px;
     padding: 20px;
     text-align: center;
-     position: relative;
+    z-index: 2;
+    position: relative;
 }
 
 #card img{
@@ -72,4 +75,22 @@ body {
     transform: translate(-50%, -50%) scale(0);
     opacity: 0;
     transition: transform ease 0.5s;
+}
+
+.cursor {
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    mix-blend-mode: difference;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 3;
+}
+
+.myLogo {
+    position: absolute;
+    font-size: 120px;
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.807);
+    z-index: 1;
 }
