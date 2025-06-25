@@ -21,7 +21,10 @@ body {
     height: 450px;
     width: 300px;
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    background-color: lavenderblush;
 }
 
 #story-section {
@@ -35,7 +38,7 @@ body {
 }
 
 #story-section::-webkit-scrollbar {
-    /* display: none; */
+    display: none;
 }
 
 .story {
@@ -53,5 +56,22 @@ body {
     width: 100%;
     object-fit: cover;
     object-position: center;
+}
+
+#full-screen {
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    position: absolute;
+    display: none;
+    background-size: cover;
+    background-position: center;
+}
+
+#card p{
+    margin-top: 25px;
+    text-align: center;
+    font-size: 35px;
+    color: goldenrod;
 }
 
