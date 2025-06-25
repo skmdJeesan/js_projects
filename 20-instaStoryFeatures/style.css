@@ -8,5 +8,50 @@
 html,body {
     height: 100%;
     width: 100%;
-} 
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: whitesmoke;
+}
+
+#card {
+    height: 450px;
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#story-section {
+    height: 120px;
+    width: 100%;
+    border-bottom: 1px solid #dadada;
+    padding: 20px 10px;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#story-section::-webkit-scrollbar {
+    /* display: none; */
+}
+
+.story {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 3px solid red;
+    display: inline-block;
+    overflow: hidden;
+    margin-right: 5px;
+}
+
+.story img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
 
