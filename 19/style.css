@@ -3,9 +3,44 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
 }
 
 html, body {
     height: 100%;
     width: 100%;
+}
+
+#main {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+
+.elem {
+    width: 100%;
+    height: 150px;
+    border-bottom: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.elem img {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    opacity: 0;
+    position: absolute;
+    transform: translate(-50% -50%);
+    transition: all linear 0.3s;
+}
+
+.elem h1 {
+    font-size: 60px;
+    z-index: 9;
+    mix-blend-mode: difference;
 }
