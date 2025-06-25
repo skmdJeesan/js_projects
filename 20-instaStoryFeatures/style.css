@@ -72,6 +72,17 @@ body {
     margin-top: 25px;
     text-align: center;
     font-size: 35px;
+    font-weight: 700;
     color: goldenrod;
+}
+
+#cursor {
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    mix-blend-mode: difference;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 3;
 }
 

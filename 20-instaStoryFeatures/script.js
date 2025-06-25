@@ -25,3 +25,11 @@ storySec.addEventListener('click', function(e){
         fullScreen.style.display = 'none'
     },4000)
 })
+
+const body = document.querySelector('body');
+const cursor = document.querySelector('#cursor');
+
+body.addEventListener('mousemove', function(e) {
+    cursor.style.left = e.x+'px';
+    cursor.style.top = e.y+'px';
+})
