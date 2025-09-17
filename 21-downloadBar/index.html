@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download Bar</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+  <div id="main" class="h-screen w-full bg-black/92 flex items-center justify-center">
+      <div class="h-[18vh] w-[17vw] rounded-xl bg-black flex flex-col items-center gap-2 justify-center">
+        <h2 class="text-white heading">Downloading...</h2>
+        <div class="container h-[10%] w-[70%] bg-zinc-600 rounded-full">
+          <div class="progress h-full bg-white rounded-full w-[0%] transition-ease"></div>
+        </div>
+        <h2 class="percent text-white text-sm">0%</h2>
+      </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
