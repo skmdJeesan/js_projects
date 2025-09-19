@@ -38,6 +38,7 @@ function saveToLocalStorage (obj){
 }
 
 addBtn.addEventListener('click', () => {
+  formContainer.style.display = 'block'
   formContainer.classList.replace('-top-[100%]','-top-[0%]')
 })
 
@@ -67,89 +68,95 @@ form.addEventListener('submit', (e) => {
   //console.log('Form submitted:', data);
   // TODO: create a card, save to localStorage, send to server, etc.
   createProfileCard({
-    img: data.imgUrl,
-    name: data.fullName,
+    imgUrl: data.imgUrl,
+    fullNameame: data.fullName,
     hometown: data.hometown,
     purpose: data.purpose,
     category: data.category
   });
   saveToLocalStorage(data)
   form.reset();
+  formContainer.style.display = 'none'
 });
 
+let allTasks = JSON.parse(localStorage.getItem('tasks'))
+allTasks?.forEach(function(task){
+  if(task != null) createProfileCard(task)
+})
+
 function createProfileCard(obj) {
-  // Outer card
-  const card = document.createElement("div");
-  card.className = "card bg-[#f5f5f5] flex flex-col p-4 w-full h-full shadow-xl rounded-2xl absolute justify-around";
+    // Outer card
+    const card = document.createElement("div");
+    card.className = "card bg-[#f5f5f5] flex flex-col p-4 w-full h-full shadow-xl rounded-2xl absolute justify-around";
 
-  // Profile wrapper
-  const profile = document.createElement("div");
-  profile.className = "profile overflow-hidden h-15 w-15 -mb-4";
+    // Profile wrapper
+    const profile = document.createElement("div");
+    profile.className = "profile overflow-hidden h-15 w-15 -mb-4";
 
-  const profileImg = document.createElement("img");
-  profileImg.src = obj.img;
-  profileImg.alt = name;
-  profileImg.className = "w-full h-full object-cover rounded-full";
+    const profileImg = document.createElement("img");
+    profileImg.src = obj.imgUrl;
+    profileImg.alt = name;
+    profileImg.className = "w-full h-full object-cover rounded-full";
 
-  profile.appendChild(profileImg);
-  card.appendChild(profile);
+    profile.appendChild(profileImg);
+    card.appendChild(profile);
 
-  // Name
-  const h3Name = document.createElement("h3");
-  h3Name.className = "font-bold";
-  h3Name.textContent = obj.name;
-  card.appendChild(h3Name);
+    // Name
+    const h3Name = document.createElement("h3");
+    h3Name.className = "font-bold";
+    h3Name.textContent = obj.fullName;
+    card.appendChild(h3Name);
 
-  // Info block
-  const infoBlock = document.createElement("div");
-  infoBlock.className = "flex flex-col text-sm";
+    // Info block
+    const infoBlock = document.createElement("div");
+    infoBlock.className = "flex flex-col text-sm";
 
-  const row1 = document.createElement("div");
-  row1.className = "flex justify-between";
-  const r1left = document.createElement("h4");
-  r1left.textContent = "Hometown";
-  const r1right = document.createElement("h4");
-  r1right.textContent = obj.hometown;
-  row1.appendChild(r1left);
-  row1.appendChild(r1right);
+    const row1 = document.createElement("div");
+    row1.className = "flex justify-between";
+    const r1left = document.createElement("h4");
+    r1left.textContent = "Hometown";
+    const r1right = document.createElement("h4");
+    r1right.textContent = obj.hometown;
+    row1.appendChild(r1left);
+    row1.appendChild(r1right);
 
-  const row2 = document.createElement("div");
-  row2.className = "flex justify-between";
-  const r2left = document.createElement("h4");
-  r2left.textContent = "Category";
-  const r2right = document.createElement("h4");
-  r2right.textContent = obj.category;
-  row2.appendChild(r2left);
-  row2.appendChild(r2right);
+    const row2 = document.createElement("div");
+    row2.className = "flex justify-between";
+    const r2left = document.createElement("h4");
+    r2left.textContent = "Category";
+    const r2right = document.createElement("h4");
+    r2right.textContent = obj.category;
+    row2.appendChild(r2left);
+    row2.appendChild(r2right);
 
-  infoBlock.appendChild(row1);
-  infoBlock.appendChild(row2);
-  card.appendChild(infoBlock);
+    infoBlock.appendChild(row1);
+    infoBlock.appendChild(row2);
+    card.appendChild(infoBlock);
 
-  // Actions
-  const actions = document.createElement("div");
-  actions.className = "flex gap-2";
+    // Actions
+    const actions = document.createElement("div");
+    actions.className = "flex gap-2";
 
-  const callBtn = document.createElement("div");
-  callBtn.className = "call py-1 px-4 bg-black text-white rounded-full cursor-pointer active:scale-95 flex gap-2 items-center";
-  const phoneIcon = document.createElement("i");
-  phoneIcon.className = "ri-phone-line";
-  const callText = document.createElement("h3");
-  callText.className = "text-sm";
-  callText.textContent = "call";
-  callBtn.appendChild(phoneIcon);
-  callBtn.appendChild(callText);
+    const callBtn = document.createElement("div");
+    callBtn.className = "call py-1 px-4 bg-black text-white rounded-full cursor-pointer active:scale-95 flex gap-2 items-center";
+    const phoneIcon = document.createElement("i");
+    phoneIcon.className = "ri-phone-line";
+    const callText = document.createElement("h3");
+    callText.className = "text-sm";
+    callText.textContent = "call";
+    callBtn.appendChild(phoneIcon);
+    callBtn.appendChild(callText);
 
-  const msgBtn = document.createElement("div");
-  msgBtn.className = "message py-1 px-4 bg-black/20 text-white rounded-full cursor-pointer active:scale-95 hover:bg-black/40 flex items-center";
-  msgBtn.textContent = "message";
+    const msgBtn = document.createElement("div");
+    msgBtn.className = "message py-1 px-4 bg-black/20 text-white rounded-full cursor-pointer active:scale-95 hover:bg-black/40 flex items-center";
+    msgBtn.textContent = "message";
 
-  actions.appendChild(callBtn);
-  actions.appendChild(msgBtn);
-  card.appendChild(actions);
+    actions.appendChild(callBtn);
+    actions.appendChild(msgBtn);
+    card.appendChild(actions);
 
-  // append to parent
-  cards.appendChild(card);
+    // append to parent
+    cards.appendChild(card);
 }
 
 function updateCardStack () {
@@ -157,8 +164,8 @@ function updateCardStack () {
   cardlist.forEach((card,idx) => {
     if(idx == 3) return;
     card.style.zIndex = 3 - idx;
-    card.style.transform = `translateY(${idx*10}px) scale(${1-idx*0.02})`;
-    card.style.opacity = `${1-idx*0.02}`
+    card.style.transform = `translateY(${idx*10}px) scale(${1 - idx * 0.02})`;
+    card.style.opacity = `${1 - idx * 0.02}`
   })
 }
 
