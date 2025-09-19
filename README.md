@@ -5,7 +5,7 @@ Each project is a focused, well-documented demo you can run locally or open from
 
 ## Live demo
 
-Live demo: [Open]()
+Live demo: [Open](https://skmdjeesan.github.io/js_projects/)
 
 ## Repo
 
