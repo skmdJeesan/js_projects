@@ -30,8 +30,6 @@ p {
 }
 
 button {
-  padding: 0;
-  margin: 0;
   border: transparent;
   background: transparent;
   color: #fff;
@@ -41,6 +39,7 @@ button {
   text-transform: uppercase;
   cursor: pointer;
 }
+
 
 /* JavaScript */
 div.cursor {
