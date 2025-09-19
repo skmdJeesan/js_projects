@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css">
+  <title>Call App</title>
+</head>
+<body>
+  <div id="main" class="bg-black/20 h-screen w-full relative">
+    <div class="form-container w-full h-full bg-black/80 backdrop-blur-xs p-10 absolute -top-[100%] z-[20] transition-all duration-300">
+      <h2 class="text-white text-2xl font-semibold mb-4">Create a Note</h2>
+      <form id="noteForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- Image URL -->
+      <div class="col-span-1 md:col-span-2">
+        <label for="imgUrl" class="block text-sm text-white/80 mb-1">Image URL</label>
+        <input id="imgUrl" name="imgUrl" type="url" placeholder="https://example.com/photo.jpg"
+          class="w-full rounded-lg px-4 py-2 bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+      </div>
+
+      <!-- Full name -->
+      <div>
+        <label for="fullName" class="block text-sm text-white/80 mb-1">Full name</label>
+        <input id="fullName" name="fullName" type="text" placeholder="Aarav Sharma"
+          class="w-full rounded-lg px-4 py-2 bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-indigo-400" required />
+      </div>
+
+      <!-- Hometown -->
+      <div>
+        <label for="hometown" class="block text-sm text-white/80 mb-1">Hometown</label>
+        <input id="hometown" name="hometown" type="text" placeholder="Pune"
+          class="w-full rounded-lg px-4 py-2 bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-indigo-400" required/>
+      </div>
+
+      <!-- Purpose (textarea) -->
+      <div class="md:col-span-2">
+        <label for="purpose" class="block text-sm text-white/80 mb-1">Purpose</label>
+        <textarea id="purpose" name="purpose" rows="3" placeholder="Brief description..."
+          class="w-full rounded-lg px-4 py-3 bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-indigo-400 resize-none" required></textarea>
+      </div>
+
+      <!-- Category -->
+      <div>
+        <label for="category" class="block text-sm text-white/80 mb-1">Category</label>
+        <select id="category" name="category" required
+          class="w-full rounded-lg px-2 py-2 bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          <option value="Emergency">Emergency</option>
+          <option value="Important">Important</option>
+          <option value="Urgent">Urgent</option>
+          <option value="No rush">No rush</option>
+        </select>
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex gap-3 items-center justify-end md:col-span-2 mt-2">
+        <button id="closeBtn" type="button"
+          class="px-4 py-2 rounded-lg bg-white/6 text-white border border-white/10 hover:bg-white/10 transition cursor-pointer active:scale-95 hover:bg-white/12">
+          Close
+        </button>
+
+        <button id="createBtn" type="submit"
+          class="px-4 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500 transition cursor-pointer active:scale-95 hover:bg-indigo-900">
+          Create Note
+        </button>
+      </div>
+      </form>
+    </div>
+    <div class="card-container flex h-full w-full items-center justify-center gap-5">
+      <div class="flex flex-col gap-2">
+        <div class="addBtn h-7 w-7 border-1 rounded-full flex items-center justify-center cursor-pointer"><i class="ri-add-line"></i></div>
+        <div class="upBtn h-7 w-7 border-1 rounded-full flex items-center justify-center cursor-pointer"><i class="ri-arrow-up-line"></i></div>
+        <div class="downBtn h-7 w-7 border-1 rounded-full flex items-center justify-center cursor-pointer"><i class="ri-arrow-down-line"></i></div>
+      </div>
+
+      <div class="cards flex flex-col w-60 h-70 relative">
+        <div class="card bg-[#f5f5f5] flex flex-col p-4 w-full h-full shadow-xl rounded-2xl absolute justify-around">
+          <div class="profile overflow-hiddden h-15 w-15 -mb-4">
+            <img src="https://images.unsplash.com/photo-1613425960896-aecc85d85507?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1vZGVsJTIwaW4lMjBhJTIwbmF0dXJlfGVufDB8fDB8fHww" alt="" class="w-full h-full object-cover rounded-full">
+          </div>
+          <h3 class="font-bold">Nusrat Jahan</h3>
+          <div class="flex flex-col text-sm">
+            <div class="flex justify-between">
+              <h4>Hometown</h4>
+              <h4>Singapore</h4>
+            </div>
+            <div class="flex justify-between">
+              <h4>Category</h4>
+              <h4>Important</h4>
+            </div>
+          </div>
+          <div class="flex gap-2">
+            <div class="call py-1 px-4 bg-black text-white rounded-full cursor-pointer active:scale-95 flex gap-2 items-center">
+              <i class="ri-phone-line"></i>
+              <h3 class="text-sm">call</h3>
+            </div>
+            <div class="message py-1 px-4 bg-black/20 text-white rounded-full cursor-pointer active:scale-95 hover:bg-black/40">message</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <div class="h-7 w-7 rounded-full cursor-pointer bg-yellow-400"></div>
+        <div class="h-7 w-7 rounded-full cursor-pointer bg-red-400"></div>
+        <div class="h-7 w-7 rounded-full cursor-pointer bg-purple-400"></div>
+        <div class="h-7 w-7 rounded-full cursor-pointer bg-pink-400"></div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
