@@ -4,10 +4,18 @@ let username = document.querySelector('.username');
 let role = document.querySelector('.role'); 
 let bio = document.querySelector('.bio');
 let photo = document.querySelector('.photo');
+let delBtn = document.querySelector('.del')
+
+// user.addEventListener('mouseenter', () => {
+//   document.querySelector('.del').className.replace('opacity-0', 'opacity-100')
+// })
 
 const userManager = {
   users: [],
-  init: function() { form.addEventListener('submit', this.submitForm.bind(this))},
+  init: function() { 
+    form.addEventListener('submit', this.submitForm.bind(this))
+    delBtn.addEventListener('click', this.removeUser.bind(this))
+  },
   submitForm: function(e) {
     e.preventDefault();
     this.addUser()
@@ -22,7 +30,7 @@ const userManager = {
     this.users.forEach(function (user) {
       const card = document.createElement("div");
       card.className =
-        "flex flex-col gap-2 bg-gray-200 rounded-xl items-center justify-center py-2 px-4 h-[30vh] w-[18vw] hover:scale-[1.2] transition-transform cursor-pointer shadow-xl";
+        "flex flex-col gap-2 bg-gray-200 rounded-xl items-center justify-center py-2 px-4 h-[30vh] w-[18vw] hover:scale-[1.2] transition-transform cursor-pointer shadow-xl relative";
 
       // Image
       const imgDiv = document.createElement('div');
@@ -52,11 +60,22 @@ const userManager = {
       bio.textContent = user.bio;
       card.appendChild(bio);
 
+      // Delete btn
+      const delBtn = document.createElement('div')
+      delBtn.className = 'del h-4 w-4 bg-red-400 rounded-full absolute top-2 right-2 flex items-center justify-center hover:bg-red-600'
+      const icon = document.createElement('i');
+      icon.className = 'ri-close-fill'
+      delBtn.appendChild(icon)
+      card.appendChild(delBtn)
+
       // Finally, append the card wherever needed, for example:
       document.querySelector(".users").appendChild(card);
     });
   },
-  removeUser: function() {},
+  removeUser: function() {
+    this.users.pop()
+    this.render()
+  },
 }
 
 userManager.init()
