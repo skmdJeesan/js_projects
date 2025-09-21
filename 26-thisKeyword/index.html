@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>User Manager</title>
+</head>
+<body>
+  <div id="main" class="min-h-screen w-full flex flex-col items-center py-5 gap-10">
+    <div class="form-container h-fit w-[30vw] bg-gray-200 flex flex-col justify-start items-center gap-2 rounded-xl px-10 py-7 shadow-xl">
+      <h1 class="font-bold text-xl">Add User</h1>
+      <form class="flex flex-col gap-2 w-full">
+        <div>
+          <h4 class="font-semibold text-sm">Name</h4>
+          <input required type="text" class="username bg-gray-300 rounded w-full py-1 px-4" placeholder="Enter your name..">
+        </div>
+        <div>
+          <h4 class="font-semibold text-sm">Role</h4>
+          <input required type="text" class="role bg-gray-300 rounded w-full py-1 px-4" placeholder="Enter your Role..">
+        </div>
+        <div>
+          <h4 class="font-semibold text-sm">Bio</h4>
+          <input required type="text" class="bio bg-gray-300 rounded w-full py-1 px-4" placeholder="Tell us something about you...">
+        </div>
+        <div>
+          <h4 class="font-semibold text-sm">Photo</h4>
+          <input required type="text" class="photo bg-gray-300 rounded w-full py-1 px-4" placeholder="https://www.imageUrl.com">
+        </div>
+        <button class="submitBtn rounded-xl w-full py-1 px-4 bg-gray-400 hover:text-white hover:bg-black cursor-pointer active:scale-95">Submit</button>
+      </form>
+    </div>
+    <div class="users grid grid-cols-1 md:grid-cols-3 gap-7 px-6 max-w-6xl mx-auto">
+      <!-- <div class="user flex flex-col gap-2 bg-gray-200 rounded-xl items-center justify-center py-2 px-4 h-[30vh] w-[18vw] hover:scale-[1.2] transition-transform cursor-pointer shadow-xl">
+        <div class="img-div h-17 w-17 rounded-full overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1757383747751-d1c91fb276ea?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1Mnx8fGVufDB8fHx8fA%3D%3D" alt="" class="w-full h-full object-cover">
+        </div>
+        <h2 class="font-bold">smJ</h2>
+        <h3 class="text-sm">Frontend dev</h3>
+        <h4 class="text-center text-sm">I can create animated modern UI and UX</h4>
+      </div> -->
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
